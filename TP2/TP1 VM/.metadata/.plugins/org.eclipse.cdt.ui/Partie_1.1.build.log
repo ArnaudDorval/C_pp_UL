@@ -1,0 +1,61 @@
+18:22:15 **** Build of configuration Debug for project Partie_1.1 ****
+make all 
+Building file: ../fonctionsUtilitaires.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++03 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"fonctionsUtilitaires.d" -MT"fonctionsUtilitaires.o" -o "fonctionsUtilitaires.o" "../fonctionsUtilitaires.cpp"
+In file included from ../fonctionsUtilitaires.cpp:9:0:
+../fonctionsUtilitaires.h:14:30: error: ‘MAX_VALEURS’ was not declared in this scope
+ void triBulle(int tabDonnees[MAX_VALEURS]);
+                              ^
+../fonctionsUtilitaires.h:15:29: error: ‘MAX_VALEURS’ was not declared in this scope
+ void tri2d(int tabDonnees[][MAX_VALEURS], int);
+                             ^
+../fonctionsUtilitaires.h:15:41: error: expected ‘)’ before ‘,’ token
+ void tri2d(int tabDonnees[][MAX_VALEURS], int);
+                                         ^
+../fonctionsUtilitaires.h:15:43: error: expected unqualified-id before ‘int’
+ void tri2d(int tabDonnees[][MAX_VALEURS], int);
+                                           ^
+../fonctionsUtilitaires.h:16:40: error: ‘MAX_VALEURS’ was not declared in this scope
+ int occurencesPlusGrand(int tabDonnees[MAX_VALEURS][],int, int);
+                                        ^
+../fonctionsUtilitaires.h:16:54: error: expected ‘)’ before ‘,’ token
+ int occurencesPlusGrand(int tabDonnees[MAX_VALEURS][],int, int);
+                                                      ^
+../fonctionsUtilitaires.h:16:55: error: expected unqualified-id before ‘int’
+ int occurencesPlusGrand(int tabDonnees[MAX_VALEURS][],int, int);
+                                                       ^
+../fonctionsUtilitaires.h:17:30: error: ‘MAX_VALEURS’ was not declared in this scope
+ bool existe(int tabDonnees[][MAX_VALEURS],int, int p_valeur);
+                              ^
+../fonctionsUtilitaires.h:17:42: error: expected ‘)’ before ‘,’ token
+ bool existe(int tabDonnees[][MAX_VALEURS],int, int p_valeur);
+                                          ^
+../fonctionsUtilitaires.h:17:43: error: expected unqualified-id before ‘int’
+ bool existe(int tabDonnees[][MAX_VALEURS],int, int p_valeur);
+                                           ^
+../fonctionsUtilitaires.cpp:17:29: error: ‘MAX_VALEURS’ was not declared in this scope
+ void triBulle(int tabDonnee[MAX_VALEURS])
+                             ^
+../fonctionsUtilitaires.cpp: In function ‘void triBulle(...)’:
+../fonctionsUtilitaires.cpp:21:20: error: ‘MAX_VALEURS’ was not declared in this scope
+  for (i = 1; (i <= MAX_VALEURS) && flag; i++)
+                    ^
+../fonctionsUtilitaires.cpp:26:8: error: ‘tabDonnee’ was not declared in this scope
+    if (tabDonnee[j + 1] > tabDonnee[j])
+        ^
+../fonctionsUtilitaires.cpp: At global scope:
+../fonctionsUtilitaires.cpp:42:29: error: ‘MAX_VALEURS’ was not declared in this scope
+ void tri2d(int tabDonnees[][MAX_VALEURS], int p_nombre-de-Lignes)
+                             ^
+../fonctionsUtilitaires.cpp:42:41: error: expected ‘)’ before ‘,’ token
+ void tri2d(int tabDonnees[][MAX_VALEURS], int p_nombre-de-Lignes)
+                                         ^
+../fonctionsUtilitaires.cpp:42:43: error: expected unqualified-id before ‘int’
+ void tri2d(int tabDonnees[][MAX_VALEURS], int p_nombre-de-Lignes)
+                                           ^
+subdir.mk:21 : la recette pour la cible « fonctionsUtilitaires.o » a échouée
+make: *** [fonctionsUtilitaires.o] Erreur 1
+
+18:22:16 Build Finished (took 219ms)
+

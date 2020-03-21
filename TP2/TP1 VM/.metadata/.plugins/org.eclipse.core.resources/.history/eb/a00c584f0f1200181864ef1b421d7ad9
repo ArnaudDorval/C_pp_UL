@@ -1,0 +1,66 @@
+/**
+ * \file programmePrincipal.cpp
+ * \brief  Programme ...
+ * A corriger
+ * \author the
+ * \version 0.1
+ * \date 2018-01-10
+ */
+#include <iostream>
+#include "fonctionsUtilitaires.h"
+using namespace std;
+
+
+
+int main()
+{
+		float variante;
+		int tabValeurs[MAX_CAS][MAX_VALEURS];
+		int registre;
+		float taux;
+		int cardinalite = MAX_VALEURS * MAX_CAS;
+		int seuil;
+
+		cout << "Saisissez des nombres séparés par des entrées " << endl;
+
+
+		for (int i = 0; i < MAX_CAS; ++i)
+		{
+			for (int j = 0; j < MAX_VALEURS; ++j)
+			{
+				cin >> registre;
+				cin.ignore();
+				tabValeurs[i][j] = registre;
+			}
+			cout << endl;
+		}
+
+		cout << "nombres saisis :" << endl;
+
+		afficherTableau(tabValeurs);
+
+		tri2d(tabValeurs);
+
+		cout << "nouveau contenu du tableau :" << endl;
+
+		afficherTableau(tabValeurs);
+
+		cout << "saisir la valeur seuil :" << endl;
+
+		cin >> seuil;
+
+
+		variante = occurencesPlusGrand(tabValeurs, seuil);
+		taux = (float(occurencesPlusGrand(tabValeurs, seuil)) / float(cardinalite));
+
+		cout<< variante << " présent" << endl;
+		cout << "il y a " << taux << " pourcent de nombres plus grands que "
+					<< seuil << " dans le tableau de valeurs" << endl;
+
+		//ceci est un test
+	//	seuil = seuil * taux;
+	//	cout << seuil << endl;
+
+	return 0;
+}
+

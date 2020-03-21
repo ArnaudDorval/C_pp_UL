@@ -1,0 +1,21 @@
+/**
+ * \file fonctionsUtilitaires.h
+ * \brief
+ * \author the
+ * \version 0.1
+ * \date 2018-01-08
+ */
+#ifndef FONCTIONSUTILITAIRES_H_
+#define FONCTIONSUTILITAIRES_H_
+
+const int MAX_CAS = 4;
+const int MAX_VALEURS = 4;
+
+
+void triBulle(int tabDonnees, int p_ligne);
+void tri2d(int tabDonnees[MAX_CAS]);
+int occurencesPlusGrand(int p_tabDonnees[MAX_CAS][MAX_VALEURS],int p_nombreLignes,int p_valeur);
+bool existe(int tabDonnees[MAX_CAS][MAX_VALEURS], int p_valeur);
+void afficherTableau(int p_tabDonnees[MAX_CAS][MAX_VALEURS]);
+
+#endif /* FONCTIONSUTILITAIRES_H_ */

@@ -1,0 +1,51 @@
+Running main() from gtest_main.cc
+[==========] Running 18 tests from 3 test cases.
+[----------] Global test environment set-up.
+[----------] 3 tests from FormatNom
+[ RUN      ] FormatNom.nomValideSansEspace
+[       OK ] FormatNom.nomValideSansEspace (0 ms)
+[ RUN      ] FormatNom.nomValideAvecEspace
+[       OK ] FormatNom.nomValideAvecEspace (0 ms)
+[ RUN      ] FormatNom.nomInvalideAvecChiffre
+[       OK ] FormatNom.nomInvalideAvecChiffre (0 ms)
+[----------] 3 tests from FormatNom (0 ms total)
+
+[----------] 8 tests from FormatTelephone
+[ RUN      ] FormatTelephone.telephoneValide
+[       OK ] FormatTelephone.telephoneValide (0 ms)
+[ RUN      ] FormatTelephone.invalideNbCaracteres
+[       OK ] FormatTelephone.invalideNbCaracteres (0 ms)
+[ RUN      ] FormatTelephone.invalideEspace
+[       OK ] FormatTelephone.invalideEspace (0 ms)
+[ RUN      ] FormatTelephone.invalideTiret
+[       OK ] FormatTelephone.invalideTiret (0 ms)
+[ RUN      ] FormatTelephone.invalideQueDesChiffres
+[       OK ] FormatTelephone.invalideQueDesChiffres (0 ms)
+[ RUN      ] FormatTelephone.invalideCodeRegional000
+[       OK ] FormatTelephone.invalideCodeRegional000 (0 ms)
+[ RUN      ] FormatTelephone.invalideCodeRegional413
+[       OK ] FormatTelephone.invalideCodeRegional413 (0 ms)
+[ RUN      ] FormatTelephone.invalideCodeRegional666
+[       OK ] FormatTelephone.invalideCodeRegional666 (0 ms)
+[----------] 8 tests from FormatTelephone (0 ms total)
+
+[----------] 7 tests from FormatFichier
+[ RUN      ] FormatFichier.valideAvecUnCompte
+[       OK ] FormatFichier.valideAvecUnCompte (3 ms)
+[ RUN      ] FormatFichier.valideAvecComptes
+[       OK ] FormatFichier.valideAvecComptes (3 ms)
+[ RUN      ] FormatFichier.InValideNom
+[       OK ] FormatFichier.InValideNom (1 ms)
+[ RUN      ] FormatFichier.InValideFormatDate
+[       OK ] FormatFichier.InValideFormatDate (3 ms)
+[ RUN      ] FormatFichier.InValideFormatTelephone
+[       OK ] FormatFichier.InValideFormatTelephone (2 ms)
+[ RUN      ] FormatFichier.InValideTypeDeCompteNonDefini
+[       OK ] FormatFichier.InValideTypeDeCompteNonDefini (2 ms)
+[ RUN      ] FormatFichier.InValideLigneVideMilieuFichier
+[       OK ] FormatFichier.InValideLigneVideMilieuFichier (0 ms)
+[----------] 7 tests from FormatFichier (14 ms total)
+
+[----------] Global test environment tear-down
+[==========] 18 tests from 3 test cases ran. (14 ms total)
+[  PASSED  ] 18 tests.

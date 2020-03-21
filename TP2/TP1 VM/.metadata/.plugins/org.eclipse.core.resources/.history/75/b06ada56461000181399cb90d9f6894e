@@ -1,0 +1,16 @@
+/*
+ * Test.cpp
+ *
+ *  Created on: 2018-02-12
+ *      Author: etudiant
+ */
+#include <iostream>
+#include "validationFormat.h"
+using namespace std;
+
+
+
+int main()
+{
+
+}

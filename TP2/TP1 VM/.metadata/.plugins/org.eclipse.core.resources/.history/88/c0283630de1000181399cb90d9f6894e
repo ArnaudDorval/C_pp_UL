@@ -1,0 +1,35 @@
+/*
+ * Test.cpp
+ *
+ *  Created on: 2018-02-12
+ *      Author: etudiant
+ */
+#include <iostream>
+#include "validationFormat.h"
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+
+
+int main()
+{
+	string mot;
+	bool etat;
+
+	cout<<"ecrire un mot"<<endl;
+	getline(cin, mot);
+	cout<<mot<<endl;
+
+	//etat=validerFormatNom(mot);
+
+	//etat=validerTelephone(mot);
+	mot.erase(remove(mot.begin(), mot.end(), ' ')),
+
+	cout<<mot<<endl;
+
+	//cout<<etat<<endl;
+	return 0;
+
+}

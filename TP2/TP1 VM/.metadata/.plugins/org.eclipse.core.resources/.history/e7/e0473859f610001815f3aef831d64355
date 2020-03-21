@@ -1,0 +1,32 @@
+/*
+ * validationFormat.h
+ *
+ *  Created on: 2018-02-12
+ *      Author: Arnaud Dorval
+ */
+
+#ifndef VALIDATIONFORMAT_H_
+#define VALIDATIONFORMAT_H_
+
+#include <iostream>
+#include <string>
+
+const int NOMBRE_MAX_MOTS = 100;
+
+enum
+{
+	OK, ERREUR
+};
+
+using namespace std;
+
+bool validerFormatNom(string& p_nom);
+bool validerTelephone(string& p_telephone);
+bool validerDate(string& p_date);
+
+int lireListe(string& p_nomFichier, string p_liste[NOMBRE_MAX_MOTS]);
+void afficheListe(string p_liste[NOMBRE_MAX_MOTS], int p_nombreMot);
+
+bool validerFormatFichier(istream& p_is);
+
+#endif /* VALIDATIONFORMAT_H_ */

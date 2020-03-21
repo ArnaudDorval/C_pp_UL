@@ -1,0 +1,15 @@
+11:12:34 **** Incremental Build of configuration Debug for project Partie_1 ****
+make all 
+Building file: ../programmePrincipal.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++03 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"programmePrincipal.d" -MT"programmePrincipal.o" -o "programmePrincipal.o" "../programmePrincipal.cpp"
+Finished building: ../programmePrincipal.cpp
+ 
+Building target: Partie_1
+Invoking: GCC C++ Linker
+g++  -o "Partie_1"  ./fonctionsUtilitaires.o ./programmePrincipal.o   
+Finished building target: Partie_1
+ 
+11:12:40 **** Incremental Build of configuration Debug for project Partie_1 ****
+make all 
+make: rien à faire pour « all ».

@@ -1,0 +1,45 @@
+/*
+ * Test.cpp
+ *
+ *  Created on: 2018-02-12
+ *      Author: etudiant
+ */
+#include <iostream>
+#include "validationFormat.h"
+#include <string>
+
+
+using namespace std;
+
+
+
+int main()
+{
+	string mot;
+	bool etat;
+	int valeur;
+	string re_mot;
+
+	cout<<"ecrire un mot"<<endl;
+	getline(cin, mot);
+
+	int longueur = mot.length();
+
+	//etat=validerFormatNom(mot);
+
+	//etat=validerTelephone(mot);
+
+	for (int i = 0; i < longueur; ++i){
+		valeur = (int)mot[ i ];
+		if (valeur != 32){
+			re_mot = re_mot + mot[ i ];
+		}
+
+	}
+
+	cout<<re_mot<<endl;
+
+	//cout<<etat<<endl;
+	return 0;
+
+}

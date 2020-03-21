@@ -1,0 +1,142 @@
+/*
+ * validationFormat.cpp
+ *
+ *  Created on: 2018-02-12
+ *      Author: Arnaud Dorval
+ */
+#include <istream>
+#include <iostream>
+#include <sstream>
+#include <stdio.h>
+#include <fstream>
+
+using namespace std;
+
+/*
+bool validerFormatNom (const std::string& p_nom)
+bool validerTelephone(const std::string& p_telephone)
+bool validerFormatFichier(std::istream& p_is)
+ */
+
+bool validerFormatNom(string& p_nom){
+	bool validation = true;// variable de retour
+	int longueur = p_nom.length();//determiner le nombre de charactère dans le nom
+	int valeur;//variable pour contenir le code ASCII des différents caractères
+
+	for (int i = 0; i < longueur; ++i){
+		valeur = (int)p_nom[ i ];//convertir le charactère en decimal ascii
+
+		if (!((valeur==32)||((valeur>=65)&&(valeur<=90))||((valeur>=97)&&(valeur<=122)))){
+			validation = false;//valide si la lettre est une lettre majuscule ou minuscule et si c'est un espace
+			break;
+		}
+	}
+	return validation;
+}
+
+bool validerTelephone(string& p_telephone){
+	bool validation = true;// variable de retour
+	int longueur = p_telephone.length();//determiner le nombre de charactère dans le numéro de téléphone
+	int valeur;//variable pour contenir le code ASCII des différents caractères
+
+	if (longueur!=12){ // valider que la longueur du numéro
+		validation = false;
+
+	}
+	else {
+		for (int i = 0; i < longueur; ++i){
+				valeur = (int)p_telephone[ i ];//convertir le charactère en decimal ascii
+
+
+				if ( (((i == 3) && (valeur != 32))||((i == 7) && (valeur != 45))) ||( (!((i==3)||(i==7))) && (!((valeur >=48) && (valeur<=57))) ) ){ //valider que le 3ieme caractère est un " "
+					validation = false;//valider que le 3ieme caractère est un " " & le 8ieme caractère est un "-" & si les autres caractère sont des chiffres
+					break;
+				}
+		}
+	}
+
+	return validation;
+}
+
+bool validerDate(string& p_date){
+	bool validation = true;
+	int longueur = p_date.length();
+	int valeur;
+	string re_p_date; //pour contenir le mot sans espace
+	string str_jour;
+	string str_mois;
+	string str_annee;
+	int jour;
+	int mois;
+	int annee;
+
+	for (int i = 0; i < longueur; ++i){ //permet d'enlever les espaces dans le mot
+			valeur = (int)p_date[ i ];
+			if (valeur != 32){
+				re_p_date = re_p_date + p_date[ i ];
+			}
+	}
+
+	/* Test de output
+	cout<<re_p_date<<endl;
+	*/
+
+	longueur = re_p_date.length();
+
+	if (longueur != 8){ //valider si le nombre de caractère nécessaire à une date est respecté
+		validation = false;
+	}
+	else {
+		for (int i = 0; i < longueur; ++i){
+
+			if (i < 2){
+				str_jour = str_jour + re_p_date[ i ];
+			}
+			else if ((i >= 2) && (i <= 3)){
+				str_mois = str_mois + re_p_date[ i ];
+			}
+			else {
+				str_annee = str_annee + re_p_date[ i ];
+			}
+		}
+
+		stringstream s(str_jour); //convertir string en int si la date contient des caractère non numérique val_p_date va retourner 0 donc sera invalidé dans le prochain test
+		s >> jour;
+		stringstream ss(str_mois);
+		ss >> mois;
+		stringstream sss(str_annee);
+		sss >> annee;
+
+		/* test de output
+		cout<<"string"<<endl;
+		cout<<str_jour<<endl;
+		cout<<str_mois<<endl;
+		cout<<str_annee<<endl;
+		cout<<"val"<<endl;
+		cout<<jour<<endl;
+		cout<<mois<<endl;
+		cout<<annee<<endl;
+		*/
+
+		if ((jour == 0) || (mois == 0) || (annee == 0) ){
+			validation = false;
+		}
+	}
+	return validation;
+}
+
+
+bool validerFormatFichier(istream& p_is) {
+	bool validation = true;
+
+	while ( getline (myfile,line) )
+	    {
+	      cout << line << '\n';
+	    }
+	    myfile.close();
+
+
+	return validation;
+}
+
+

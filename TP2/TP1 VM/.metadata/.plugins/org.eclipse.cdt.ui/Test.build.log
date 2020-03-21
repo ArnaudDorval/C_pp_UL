@@ -1,0 +1,12 @@
+22:29:08 **** Incremental Build of configuration Debug for project Test ****
+make all 
+Building file: ../principal.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++03 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"principal.d" -MT"principal.o" -o "principal.o" "../principal.cpp"
+../principal.cpp:10:20: fatal error: caliss.h: Aucun fichier ou dossier de ce type
+compilation terminated.
+subdir.mk:21 : la recette pour la cible « principal.o » a échouée
+make: *** [principal.o] Erreur 1
+
+22:29:08 Build Finished (took 66ms)
+

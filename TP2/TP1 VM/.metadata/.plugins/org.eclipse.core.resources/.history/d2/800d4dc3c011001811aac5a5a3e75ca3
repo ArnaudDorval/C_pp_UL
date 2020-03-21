@@ -1,0 +1,173 @@
+/*
+ * validationFormat.cpp
+ *
+ *  Created on: 2018-02-12
+ *      Author: Arnaud Dorval
+ */
+#include <istream>
+#include <iostream>
+#include <sstream>
+#include <stdio.h>
+#include <fstream>
+
+using namespace std;
+
+/*
+bool validerFormatNom (const std::string& p_nom)
+bool validerTelephone(const std::string& p_telephone)
+bool validerFormatFichier(std::istream& p_is)
+ */
+
+bool validerFormatNom(string& p_nom){
+	bool validation = true;// variable de retour
+	int longueur = p_nom.length();//determiner le nombre de charactère dans le nom
+	int valeur;//variable pour contenir le code ASCII des différents caractères
+
+	for (int i = 0; i < longueur; ++i){
+		valeur = (int)p_nom[ i ];//convertir le charactère en decimal ascii
+
+		if (!((valeur==32)||((valeur>=65)&&(valeur<=90))||((valeur>=97)&&(valeur<=122)))){
+			validation = false;//valide si la lettre est une lettre majuscule ou minuscule et si c'est un espace
+			break;
+		}
+	}
+	return validation;
+}
+
+bool validerTelephone(string& p_telephone){
+	bool validation = true;// variable de retour
+	int longueur = p_telephone.length();//determiner le nombre de charactère dans le numéro de téléphone
+	int valeur;//variable pour contenir le code ASCII des différents caractères
+
+	if (longueur!=12){ // valider que la longueur du numéro
+		validation = false;
+
+	}
+	else {
+		for (int i = 0; i < longueur; ++i){
+				valeur = (int)p_telephone[ i ];//convertir le charactère en decimal ascii
+
+
+				if ( (((i == 3) && (valeur != 32))||((i == 7) && (valeur != 45))) ||( (!((i==3)||(i==7))) && (!((valeur >=48) && (valeur<=57))) ) ){ //valider que le 3ieme caractère est un " "
+					validation = false;//valider que le 3ieme caractère est un " " & le 8ieme caractère est un "-" & si les autres caractère sont des chiffres
+					break;
+				}
+		}
+	}
+
+	return validation;
+}
+
+bool validerDate(string& p_date){
+	bool validation = true;
+	int longueur = p_date.length();
+	int valeur;
+	string str_date[ 2 ]; // tableau jj mm annee
+	int selection = 0; // permet de selectionner jj, mm ou annee dans le tableau
+	int int_date[ 2 ]; // tableau jj mm annee
+
+	for (int i = 0; i < longueur; ++i){ //permet d'enlever les espaces dans le mot
+			valeur = (int)p_date[ i ];
+
+
+			if (valeur != 32){
+				str_date[ selection ] = str_date[ selection ] + p_date[ i ];
+				cout<< selection <<endl;
+			}
+			else {
+				selection =+ 1;
+			}
+	}
+
+	 /*Test de output*/
+	 cout<< str_date[ 0 ] <<endl;
+	 cout<< str_date[ 1 ] <<endl;
+	 cout<< str_date[ 2 ] <<endl;
+
+	/*longueur = re_p_date.length();
+
+		for (int i = 0; i < longueur; ++i){
+
+			if (i < 2){
+				str_jour = str_jour + re_p_date[ i ];
+			}
+			else if ((i >= 2) && (i <= 3)){
+				str_mois = str_mois + re_p_date[ i ];
+			}
+			else {
+				str_annee = str_annee + re_p_date[ i ];
+			}
+		}
+
+		stringstream s(str_jour); //convertir string en int si la date contient des caractère non numérique val_p_date va retourner 0 donc sera invalidé dans le prochain test
+		s >> jour;
+		stringstream ss(str_mois);
+		ss >> mois;
+		stringstream sss(str_annee);
+		sss >> annee;
+
+		/* test de output
+		cout<<"string"<<endl;
+		cout<<str_jour<<endl;
+		cout<<str_mois<<endl;
+		cout<<str_annee<<endl;
+		cout<<"val"<<endl;
+		cout<<jour<<endl;
+		cout<<mois<<endl;
+		cout<<annee<<endl;
+		*/
+	 	/*
+		if ((jour == 0) || (mois == 0) || (annee == 0) ){
+			validation = false;
+		}
+	}*/
+	return validation;
+}
+
+
+bool validerFormatFichier(istream& p_is) {
+	bool validation = true;
+	string ligne;
+	string mot;
+	int compteur = 0;
+	int longueur;
+
+	while  (getline (p_is,ligne) )
+	{
+
+		cout << compteur << endl;
+		mot = ""; //réinitialiser la variable mot
+		longueur = (ligne.length())-1;
+		for (int i = 0; i < longueur; ++i){ //permet de retirer le endl à chaque ligne
+			mot = mot + ligne[ i ];
+		}
+
+
+
+	     //cout << mot << endl;
+	     if (compteur <= 1){
+	    	 validation = validerFormatNom(mot);
+
+
+
+	     }
+	     else if (compteur == 2){
+	    	 cout << mot << endl;
+	    	 validation = validerDate(mot);
+
+	     }
+
+
+	     if (validation == false){
+	    	  break;
+	     }
+	     compteur = compteur + 1;
+
+
+	}
+
+
+	return validation;
+}
+
+

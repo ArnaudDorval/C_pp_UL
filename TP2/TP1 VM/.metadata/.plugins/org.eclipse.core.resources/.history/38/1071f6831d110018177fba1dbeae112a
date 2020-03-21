@@ -1,0 +1,56 @@
+/*
+ * Test.cpp
+ *
+ *  Created on: 2018-02-12
+ *      Author: etudiant
+ */
+#include <iostream>
+#include "validationFormat.h"
+#include <string>
+#include <sstream>
+#include <stdio.h>
+#include <fstream>
+
+using namespace std;
+
+
+
+int main()
+{
+	string mot;
+	bool etat;
+	int valeur;
+	string re_mot;
+
+	cout<<"ecrire un mot"<<endl;
+	getline(cin, mot);
+
+	//int longueur = mot.length();
+
+	//etat=validerFormatNom(mot);
+
+	//etat=validerTelephone(mot);
+
+	//etat = validerDate(mot);
+
+	cout<<etat<<endl;
+
+
+	 string line;
+	  ifstream myfile ("example.txt");
+	  if (myfile.is_open())
+	  {
+		  etat = validationFormat(myFile)
+	  }
+
+	  else cout << "Unable to open file";
+
+
+
+
+
+	return 0;
+
+
+
+}
